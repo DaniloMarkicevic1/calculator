@@ -259,6 +259,7 @@
                     box-shadow: map-get($colors, theme2, keys, resetShadow);
                 }
                 .equal {
+                    box-shadow: map-get($colors, theme2, keys, equalShadow);
                     background-color: map-get(
                         $colors,
                         theme2,

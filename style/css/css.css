@@ -213,6 +213,7 @@
   box-shadow: inset 0px -4px 0px #1b5f65;
 }
 * .light .container .keys .equal {
+  box-shadow: inset 0px -4px 0px #893901;
   background-color: #ca5502;
 }
 

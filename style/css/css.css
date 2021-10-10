@@ -105,7 +105,6 @@
 }
 * .neutral .container .keys button,
 * body .container .keys button {
-  text-transform: uppercase;
   border: none;
   border-radius: 5px;
   font-family: "Spartan", sans-serif;
@@ -129,6 +128,7 @@
 * body .container .keys .big,
 * body .container .keys .reset,
 * body .container .keys .del {
+  text-transform: uppercase;
   color: white;
   font-size: 16px;
 }

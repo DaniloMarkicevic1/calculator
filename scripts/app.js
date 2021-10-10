@@ -19,24 +19,89 @@ theme3.addEventListener('click', () => {
     body.classList.remove('light');
     body.classList.remove('neutral');
 });
+console.log(parseFloat('2') + 2);
+
+function validate(s) {
+    var rgx = /^[0-9]*\.?[0-9]*$/;
+    return s.match(rgx);
+}
+let a = '';
+let b = '';
+let c = '';
+function calc(value) {
+    switch (value) {
+        case 'reset':
+            a = '';
+            b = '';
+            c = '';
+            input.value = '0';
+            break;
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+        case '0':
+        case '.':
+            if (!c) {
+                a += value;
+                console.log(a, 'a');
+            } else {
+                b += value;
+            }
+            input.value = `${a}${c}${b}`;
+            break;
+        case '+':
+            c = '+';
+            console.log(c);
+            break;
+        case '-':
+            c = '-';
+            break;
+        case 'x':
+            c = '*';
+            break;
+        case '/':
+            c = '/';
+            break;
+        case '=':
+            if (c === '+') {
+                input.value = parseFloat(a) + parseFloat(b);
+                a = '';
+                b = '';
+                c = '';
+            }
+            if (c === '-') {
+                input.value = parseFloat(a) - parseFloat(b);
+                a = '';
+                b = '';
+                c = '';
+            }
+            if (c === '/') {
+                input.value = parseFloat(a) / parseFloat(b);
+                a = '';
+                b = '';
+                c = '';
+            }
+            if (c === '*') {
+                input.value = parseFloat(a) * parseFloat(b);
+                a = '';
+                b = '';
+                c = '';
+            }
+            break;
+    }
+}
+
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
-        switch (button.value) {
-            case 'reset':
-                input.value = '0';
-                break;
-            case '=':
-                break;
-            case 'x':
-                break;
-            case '+':
-                break;
-            case '-':
-                break;
-            case '/':
-                break;
-            default:
-                input.value += button.value;
-        }
+        calc(button.value);
     });
+});
+input.addEventListener('keyup', (e) => {
+    calc(e.key);
 });

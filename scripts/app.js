@@ -4,7 +4,7 @@ const theme3 = document.querySelector('.theme3');
 const input = document.querySelector('.inputScreen');
 const buttons = document.querySelectorAll('button');
 const body = document.querySelector('body');
-
+const keys = document.querySelector('.keys');
 theme1.addEventListener('click', () => {
     body.classList.remove('light', 'dark');
     body.classList.add('neutral');
@@ -19,89 +19,100 @@ theme3.addEventListener('click', () => {
     body.classList.remove('light');
     body.classList.remove('neutral');
 });
-console.log(parseFloat('2') + 2);
-
 function validate(s) {
-    var rgx = /^[0-9]*\.?[0-9]*$/;
-    return s.match(rgx);
+    var rgx = /[0-9,x+*\.\/-]/gm;
+    return rgx.test(s)
 }
 let a = '';
 let b = '';
 let c = '';
 function calc(value) {
-    switch (value) {
-        case 'reset':
-            a = '';
-            b = '';
-            c = '';
-            input.value = '0';
-            break;
-        case '1':
-        case '2':
-        case '3':
-        case '4':
-        case '5':
-        case '6':
-        case '7':
-        case '8':
-        case '9':
-        case '0':
-        case '.':
-            if (!c) {
-                a += value;
-                console.log(a, 'a');
-            } else {
-                b += value;
-            }
-            input.value = `${a}${c}${b}`;
-            break;
-        case '+':
-            c = '+';
-            console.log(c);
-            break;
-        case '-':
-            c = '-';
-            break;
-        case 'x':
-            c = '*';
-            break;
-        case '/':
-            c = '/';
-            break;
-        case '=':
-            if (c === '+') {
-                input.value = parseFloat(a) + parseFloat(b);
+        switch (value) {
+            case 'reset':
                 a = '';
                 b = '';
                 c = '';
-            }
-            if (c === '-') {
-                input.value = parseFloat(a) - parseFloat(b);
-                a = '';
-                b = '';
-                c = '';
-            }
-            if (c === '/') {
-                input.value = parseFloat(a) / parseFloat(b);
-                a = '';
-                b = '';
-                c = '';
-            }
-            if (c === '*') {
-                input.value = parseFloat(a) * parseFloat(b);
-                a = '';
-                b = '';
-                c = '';
-            }
-            break;
-    }
+                input.value = '0';
+                break;
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+            case '0':
+            case '.':
+                if (!c) {
+                    a += value;
+                } else {
+                    b += value;
+                }
+                    input.value = `${a}${c}${b}`;
+                break;
+            case '+':
+                c = '+';
+                input.value = `${a}${c}${b}`;
+                break;
+            case '-':
+                c = '-';
+                input.value = `${a}${c}${b}`;
+                break;
+            case 'x':
+            case '*':
+                c = '*';
+                input.value = `${a}${c}${b}`;
+                break;
+            case '/':
+                c = '/';
+                input.value = `${a}${c}${b}`;
+                break;
+            case '=':
+                if (c === '+') {
+                    input.value = parseFloat(a) + parseFloat(b);
+                    a = input.value;
+                    b = '';
+                    c = '';
+                }
+                if (c === '-') {
+                    input.value = parseFloat(a) - parseFloat(b);
+                    a = input.value;
+                    b = '';
+                    c = '';
+                }
+                if (c === '/') {
+                    input.value = parseFloat(a) / parseFloat(b);
+                    a = input.value;
+                    b = '';
+                    c = '';
+                }
+                if (c === '*') {
+                    input.value = parseFloat(a) * parseFloat(b);
+                    a = input.value;
+                    b = '';
+                    c = '';
+                }
+                break;
+        }
+        console.log(input.value.length)
+        if(input.value.length%1) {
+            input.value += ',';
+        }
 }
 
-buttons.forEach((button) => {
-    button.addEventListener('click', (e) => {
-        calc(button.value);
-    });
-});
+// buttons.forEach((button) => {
+//     button.addEventListener('click', (e) => {
+//         calc(button.value);
+//     });
+// });
+keys.addEventListener('click', function(e) {
+    if(!e.target.closest("button")) {
+        return;
+    }
+    calc(e.target.value)
+})
 input.addEventListener('keyup', (e) => {
     calc(e.key);
 });

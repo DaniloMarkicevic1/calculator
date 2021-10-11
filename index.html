@@ -29,7 +29,13 @@
                 </div>
             </header>
             <section class="screen">
-                <input class="inputScreen" type="text" value="0" />
+                <input
+                    class="inputScreen"
+                    type="text"
+                    value="0"
+                    onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                    pattern="[0-9,x+*\.\/-]"
+                />
             </section>
             <section class="keys">
                 <button value="7" class="small">7</button>

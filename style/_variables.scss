@@ -14,6 +14,11 @@ $font: (
 $colors: (
     white: hsl(0, 1%, 100%),
     theme1: (
+        hover: (
+            btns: #fffffe,
+            reset: #a2b2e1,
+            equals: #f96b5b,
+        ),
         backgrounds: (
             main: hsl(222, 26%, 31%),
             keypad: hsl(223, 31%, 20%),
@@ -30,6 +35,10 @@ $colors: (
         text: hsl(221, 14%, 31%),
     ),
     theme2: (
+        hover: (
+            reset: #62b5bc,
+            equals: #ff8a38,
+        ),
         backgrounds: (
             main: hsl(0, 0%, 90%),
             keypad: hsl(0, 5%, 81%),
@@ -46,6 +55,11 @@ $colors: (
         text: hsl(60, 10%, 19%),
     ),
     theme3: (
+        hover: (
+            btns: #6c34ac,
+            reset: #8631af,
+            equals: #93fff8,
+        ),
         backgrounds: (
             main: hsl(268, 75%, 9%),
             keypad: hsl(268, 71%, 12%),

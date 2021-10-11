@@ -20,6 +20,7 @@
   * .neutral .container,
 * body .container {
     padding: 96px 0 0 0;
+    min-width: 540px;
   }
 }
 * .neutral .container .header,
@@ -38,6 +39,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-template-areas: ". numbers" "theme slider";
+  column-gap: 21px;
   align-items: end;
 }
 * .neutral .container .header .themePicker p,
@@ -67,12 +69,17 @@
 }
 * .neutral .container .header .themePicker .themeSlider .circle,
 * body .container .header .themePicker .themeSlider .circle {
-  background-color: yellow;
+  background-color: #d03f2f;
   border-radius: 50%;
   align-self: center;
   width: 16px;
   height: 16px;
   margin: 0 0 0 4px;
+}
+* .neutral .container .header .themePicker .themeSlider .circle:hover,
+* body .container .header .themePicker .themeSlider .circle:hover {
+  cursor: pointer;
+  background-color: #f96b5b;
 }
 * .neutral .container .screen,
 * body .container .screen {
@@ -103,6 +110,13 @@
   grid-template-rows: repeat(5, 1fr);
   gap: 13px;
 }
+@media screen and (min-width: 1000px) {
+  * .neutral .container .keys,
+* body .container .keys {
+    gap: 24px;
+    padding: 32px;
+  }
+}
 * .neutral .container .keys button,
 * body .container .keys button {
   border: none;
@@ -121,6 +135,11 @@
   font-weight: bold;
   font-size: 28px;
   line-height: 39px;
+}
+* .neutral .container .keys .small:hover,
+* body .container .keys .small:hover {
+  cursor: pointer;
+  background-color: #fffffe;
 }
 * .neutral .container .keys .big,
 * .neutral .container .keys .reset,
@@ -143,6 +162,13 @@
   background-color: #637097;
   box-shadow: inset 0px -4px 0px #404e72;
 }
+* .neutral .container .keys .reset:hover,
+* .neutral .container .keys .del:hover,
+* body .container .keys .reset:hover,
+* body .container .keys .del:hover {
+  cursor: pointer;
+  background-color: #a2b2e1;
+}
 * .neutral .container .keys .reset,
 * body .container .keys .reset {
   grid-column: 1/3;
@@ -153,11 +179,23 @@
   box-shadow: inset 0px -4px 0px #93261a;
   background-color: #d03f2f;
 }
+* .neutral .container .keys .equal:hover,
+* body .container .keys .equal:hover {
+  cursor: pointer;
+  background-color: #f96b5b;
+}
 * .dark {
   background-color: #160628;
 }
+* .dark .container .header .themePicker .themeSlider {
+  background-color: #1d0934;
+}
 * .dark .container .header .themePicker .themeSlider .circle {
+  background-color: #00e0d1;
   margin: 0 4px 0 auto;
+}
+* .dark .container .header .themePicker .themeSlider .circle:hover {
+  background-color: #93fff8;
 }
 * .dark .container .header p {
   color: #ffe53d;
@@ -174,22 +212,39 @@
   background-color: #341c4f;
   box-shadow: inset 0px -4px 0px #871c9c;
 }
+* .dark .container .keys .small:hover {
+  background-color: #6c34ac;
+}
 * .dark .container .keys .reset,
 * .dark .container .keys .del {
   color: white;
   background-color: #58077d;
   box-shadow: inset 0px -4px 0px #bc15f4;
 }
+* .dark .container .keys .reset:hover,
+* .dark .container .keys .del:hover {
+  background-color: #8631af;
+}
 * .dark .container .keys .equal {
   color: #1b2428;
   background-color: #00e0d1;
   box-shadow: inset 0px -4px 0px #6cf9f2;
 }
+* .dark .container .keys .equal:hover {
+  background-color: #93fff8;
+}
 * .light {
   background-color: #e6e6e6;
 }
+* .light .container .header .themePicker .themeSlider {
+  background-color: #d1cccc;
+}
 * .light .container .header .themePicker .themeSlider .circle {
   margin: 0 auto;
+  background-color: #ca5502;
+}
+* .light .container .header .themePicker .themeSlider .circle:hover {
+  background-color: #62b5bc;
 }
 * .light .container .header p {
   color: #35352c;
@@ -206,15 +261,25 @@
   background-color: #e5e4e1;
   box-shadow: inset 0px -4px 0px #a69d91;
 }
+* .light .container .keys .small:hover {
+  background-color: white;
+}
 * .light .container .keys .reset,
 * .light .container .keys .del {
   color: white;
   background-color: #377f86;
   box-shadow: inset 0px -4px 0px #1b5f65;
 }
+* .light .container .keys .reset:hover,
+* .light .container .keys .del:hover {
+  background-color: #62b5bc;
+}
 * .light .container .keys .equal {
   box-shadow: inset 0px -4px 0px #893901;
   background-color: #ca5502;
+}
+* .light .container .keys .equal:hover {
+  background-color: #ff8a38;
 }
 
 /*# sourceMappingURL=css.css.map */

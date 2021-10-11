@@ -50,7 +50,12 @@
                         display: flex;
                         grid-area: slider;
                         height: 20px;
-                        background-color: black;
+                        background-color: map-get(
+                            $colors,
+                            theme1,
+                            backgrounds,
+                            keypad
+                        );
                         border-radius: 15px;
                         width: 71px;
                         height: 26px;

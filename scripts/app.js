@@ -25,6 +25,7 @@ function validate(s) {
 let a = '';
 let b = '';
 let c = '';
+
 function calc(value) {
     switch (value) {
         case 'reset':
@@ -33,13 +34,13 @@ function calc(value) {
             c = '';
             input.value = '0';
             break;
-        case "del":
+        case 'del':
             const del = input.value.length;
             input.value = input.value.toString().substring(0, del - 1);
-            console.log(input.value)
-            if(!c || c) {
+            console.log(input.value);
+            if (!c || c) {
                 a = input.value;
-                b='';
+                b = '';
             }
             break;
         case '1':
@@ -105,7 +106,6 @@ function calc(value) {
             break;
     }
 }
-
 keys.addEventListener('click', function (e) {
     if (!e.target.closest('button')) {
         return;

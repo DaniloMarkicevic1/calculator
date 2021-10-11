@@ -4,7 +4,7 @@ const input = document.querySelector('.inputScreen');
 let array = [];
 let a = '';
 let c = '';
-const addReducer = (previousValue, currentValue, funk) =>
+const addReducer = (previousValue, currentValue) =>
     previousValue + currentValue;
 const subtractReducer = (previousValue, currentValue) =>
     previousValue - currentValue;
@@ -82,7 +82,6 @@ function calc(value) {
             array = [];
         }
     }
-
 }
 keys.addEventListener('click', function (e) {
     if (!e.target.closest('button')) {
@@ -92,5 +91,4 @@ keys.addEventListener('click', function (e) {
 });
 input.addEventListener('keypress', (e) => {
     calc(e.key);
-
 });

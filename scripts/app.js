@@ -142,7 +142,6 @@ function calc(value) {
                 ).toLocaleString()}`;
             }
             break;
-
         case '+':
             c = '+';
             input.value = `${Number(a).toLocaleString()}${c}`;
@@ -161,6 +160,7 @@ function calc(value) {
             input.value = `${Number(a).toLocaleString()}${c}`;
             break;
         case '=':
+        case 'Enter':
             if (c === '+') {
                 input.value = Number(+a + +b).toLocaleString();
                 a = +a + +b;

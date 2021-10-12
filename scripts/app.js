@@ -10,11 +10,22 @@ const thirdCircle = document.querySelector('.third');
 const input = document.querySelector('.inputScreen');
 const body = document.querySelector('body');
 const keys = document.querySelector('.keys');
-
+let a = '';
+let b = '';
+let c = '';
 if (body.classList.contains('light')) {
     circle[0].classList.add('hidden');
     circle[2].classList.add('hidden');
 }
+keys.addEventListener('click', function (e) {
+    if (!e.target.closest('button')) {
+        return;
+    }
+    calc(e.target.value);
+});
+input.addEventListener('keyup', (e) => {
+    calc(e.key);
+});
 
 firstCircle.addEventListener('click', (e) => {
     body.classList.remove('light', 'dark');
@@ -74,14 +85,6 @@ theme3.addEventListener('click', () => {
     circle[1].classList.add('hidden');
     circle[2].classList.remove('hidden');
 });
-function validate(s) {
-    var rgx = /[0-9,x+*\.\/-]/gm;
-    return rgx.test(s);
-}
-let a = '';
-let b = '';
-let c = '';
-
 function calc(value) {
     switch (value) {
         case 'reset':
@@ -171,12 +174,3 @@ function calc(value) {
             break;
     }
 }
-keys.addEventListener('click', function (e) {
-    if (!e.target.closest('button')) {
-        return;
-    }
-    calc(e.target.value);
-});
-input.addEventListener('keyup', (e) => {
-    calc(e.key);
-});

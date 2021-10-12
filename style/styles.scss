@@ -46,6 +46,9 @@
                         flex-direction: row;
                         justify-content: space-around;
                         align-items: center;
+                        &:hover {
+                            cursor: pointer;
+                        }
                     }
                     .themeSlider {
                         display: flex;

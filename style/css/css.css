@@ -58,6 +58,10 @@
   justify-content: space-around;
   align-items: center;
 }
+* .neutral .container .header .themePicker .themeNums:hover,
+* body .container .header .themePicker .themeNums:hover {
+  cursor: pointer;
+}
 * .neutral .container .header .themePicker .themeSlider,
 * body .container .header .themePicker .themeSlider {
   display: flex;

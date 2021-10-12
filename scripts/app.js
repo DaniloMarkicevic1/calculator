@@ -101,7 +101,6 @@ function calc(value) {
                 b = '';
             } else {
                 b = b.substring(0, b.length - 1);
-                console.log(b);
             }
             break;
         case 'Backspace':
@@ -110,7 +109,16 @@ function calc(value) {
                 b = '';
             } else {
                 b = b.substring(0, b.length - 1);
-                console.log(b);
+            }
+            break;
+        case '.':
+            if (!c) {
+                a += value;
+                input.value += '.';
+            }
+            if (c) {
+                b += value;
+                input.value += '.';
             }
             break;
         case '1':
@@ -123,7 +131,6 @@ function calc(value) {
         case '8':
         case '9':
         case '0':
-        case '.':
             if (!c) {
                 a += value;
                 input.value = `${Number(a).toLocaleString()}`;
@@ -135,6 +142,7 @@ function calc(value) {
                 ).toLocaleString()}`;
             }
             break;
+
         case '+':
             c = '+';
             input.value = `${Number(a).toLocaleString()}${c}`;

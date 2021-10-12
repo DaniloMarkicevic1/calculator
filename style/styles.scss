@@ -46,10 +46,11 @@
                         justify-content: space-around;
                         align-items: center;
                     }
+
                     .themeSlider {
                         display: flex;
+                        justify-content: space-between;
                         grid-area: slider;
-                        height: 20px;
                         background-color: map-get(
                             $colors,
                             theme1,
@@ -59,26 +60,31 @@
                         border-radius: 15px;
                         width: 71px;
                         height: 26px;
-                        .circle {
-                            background-color: map-get(
-                                $colors,
-                                theme1,
-                                keys,
-                                equalBackground
-                            );
-                            border-radius: 50%;
+                        padding: 0 4px 0 4px;
+                        div {
                             align-self: center;
-                            width: 16px;
-                            height: 16px;
-                            margin: 0 0 0 4px;
-                            &:hover {
-                                cursor: pointer;
+                            .hidden {
+                                visibility: hidden;
+                            }
+                            .circle {
                                 background-color: map-get(
                                     $colors,
                                     theme1,
-                                    hover,
-                                    equals
+                                    keys,
+                                    equalBackground
                                 );
+                                border-radius: 50%;
+                                width: 16px;
+                                height: 16px;
+                                &:hover {
+                                    cursor: pointer;
+                                    background-color: map-get(
+                                        $colors,
+                                        theme1,
+                                        hover,
+                                        equals
+                                    );
+                                }
                             }
                         }
                     }
@@ -205,21 +211,22 @@
                             backgrounds,
                             keypad
                         );
-                        .circle {
-                            background-color: map-get(
-                                $colors,
-                                theme3,
-                                keys,
-                                equalBackground
-                            );
-                            margin: 0 4px 0 auto;
-                            &:hover {
+                        div {
+                            .circle {
                                 background-color: map-get(
                                     $colors,
                                     theme3,
-                                    hover,
-                                    equals
+                                    keys,
+                                    equalBackground
                                 );
+                                &:hover {
+                                    background-color: map-get(
+                                        $colors,
+                                        theme3,
+                                        hover,
+                                        equals
+                                    );
+                                }
                             }
                         }
                     }
@@ -306,21 +313,26 @@
                             backgrounds,
                             keypad
                         );
-                        .circle {
-                            margin: 0 auto;
-                            background-color: map-get(
-                                $colors,
-                                theme2,
-                                keys,
-                                equalBackground
-                            );
-                            &:hover {
+                        // .first,
+                        // .third {
+                        //     background-color: transparent;
+                        // }
+                        div {
+                            .circle {
                                 background-color: map-get(
                                     $colors,
                                     theme2,
-                                    hover,
-                                    reset
+                                    keys,
+                                    equalBackground
                                 );
+                                &:hover {
+                                    background-color: map-get(
+                                        $colors,
+                                        theme2,
+                                        hover,
+                                        reset
+                                    );
+                                }
                             }
                         }
                     }
@@ -394,14 +406,4 @@
             }
         }
     }
-}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-/* Firefox */
-input[type='number'] {
-    -moz-appearance: textfield;
 }

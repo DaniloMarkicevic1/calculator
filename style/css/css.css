@@ -60,24 +60,31 @@
 * .neutral .container .header .themePicker .themeSlider,
 * body .container .header .themePicker .themeSlider {
   display: flex;
+  justify-content: space-between;
   grid-area: slider;
-  height: 20px;
   background-color: #232c43;
   border-radius: 15px;
   width: 71px;
   height: 26px;
+  padding: 0 4px 0 4px;
 }
-* .neutral .container .header .themePicker .themeSlider .circle,
-* body .container .header .themePicker .themeSlider .circle {
+* .neutral .container .header .themePicker .themeSlider div,
+* body .container .header .themePicker .themeSlider div {
+  align-self: center;
+}
+* .neutral .container .header .themePicker .themeSlider div .hidden,
+* body .container .header .themePicker .themeSlider div .hidden {
+  visibility: hidden;
+}
+* .neutral .container .header .themePicker .themeSlider div .circle,
+* body .container .header .themePicker .themeSlider div .circle {
   background-color: #d03f2f;
   border-radius: 50%;
-  align-self: center;
   width: 16px;
   height: 16px;
-  margin: 0 0 0 4px;
 }
-* .neutral .container .header .themePicker .themeSlider .circle:hover,
-* body .container .header .themePicker .themeSlider .circle:hover {
+* .neutral .container .header .themePicker .themeSlider div .circle:hover,
+* body .container .header .themePicker .themeSlider div .circle:hover {
   cursor: pointer;
   background-color: #f96b5b;
 }
@@ -190,11 +197,10 @@
 * .dark .container .header .themePicker .themeSlider {
   background-color: #1d0934;
 }
-* .dark .container .header .themePicker .themeSlider .circle {
+* .dark .container .header .themePicker .themeSlider div .circle {
   background-color: #00e0d1;
-  margin: 0 4px 0 auto;
 }
-* .dark .container .header .themePicker .themeSlider .circle:hover {
+* .dark .container .header .themePicker .themeSlider div .circle:hover {
   background-color: #93fff8;
 }
 * .dark .container .header p {
@@ -239,11 +245,10 @@
 * .light .container .header .themePicker .themeSlider {
   background-color: #d1cccc;
 }
-* .light .container .header .themePicker .themeSlider .circle {
-  margin: 0 auto;
+* .light .container .header .themePicker .themeSlider div .circle {
   background-color: #ca5502;
 }
-* .light .container .header .themePicker .themeSlider .circle:hover {
+* .light .container .header .themePicker .themeSlider div .circle:hover {
   background-color: #62b5bc;
 }
 * .light .container .header p {
@@ -280,17 +285,6 @@
 }
 * .light .container .keys .equal:hover {
   background-color: #ff8a38;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
 }
 
 /*# sourceMappingURL=css.css.map */

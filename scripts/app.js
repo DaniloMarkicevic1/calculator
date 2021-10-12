@@ -81,6 +81,7 @@ function validate(s) {
 let a = '';
 let b = '';
 let c = '';
+
 function calc(value) {
     switch (value) {
         case 'reset':
@@ -122,53 +123,51 @@ function calc(value) {
         case '.':
             if (!c) {
                 a += value;
-            } else {
-                b += value;
+                input.value = `${Number(a).toLocaleString()}`;
             }
-            input.value = `${a}${c}${b}`;
+            if (c) {
+                b += value;
+                input.value = `${Number(a).toLocaleString()}${c}${Number(
+                    b
+                ).toLocaleString()}`;
+            }
             break;
         case '+':
             c = '+';
-            input.value = `${a}${c}${b}`;
+            input.value = `${Number(a).toLocaleString()}${c}`;
             break;
         case '-':
             c = '-';
-            input.value = `${a}${c}${b}`;
+            input.value = `${Number(a).toLocaleString()}${c}`;
             break;
         case 'x':
         case '*':
             c = '*';
-            input.value = `${a}${c}${b}`;
+            input.value = `${Number(a).toLocaleString()}${c}`;
             break;
         case '/':
             c = '/';
-            input.value = `${a}${c}${b}`;
+            input.value = `${Number(a).toLocaleString()}${c}`;
             break;
         case '=':
             if (c === '+') {
-                input.value = +a + +b;
-                a = input.value;
-                b = '';
-                c = '';
+                input.value = Number(+a + +b).toLocaleString();
+                a = +a + +b;
             }
             if (c === '-') {
-                input.value = +a - +b;
-                a = input.value;
-                b = '';
-                c = '';
+                input.value = Number(+a - +b).toLocaleString();
+                a = +a - +b;
             }
             if (c === '/') {
-                input.value = +a / +b;
-                a = input.value;
-                b = '';
-                c = '';
+                input.value = Number(+a / +b).toLocaleString();
+                a = +a / +b;
             }
             if (c === '*') {
-                input.value = +a * +b;
-                a = input.value;
-                b = '';
-                c = '';
+                input.value = Number(+a * +b).toLocaleString();
+                a = +a * +b;
             }
+            b = '';
+            c = '';
             break;
     }
 }

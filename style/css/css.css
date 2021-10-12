@@ -32,6 +32,7 @@
 * body .container .header p {
   color: white;
   font-size: 32px;
+  align-self: center;
 }
 * .neutral .container .header .themePicker,
 * body .container .header .themePicker {

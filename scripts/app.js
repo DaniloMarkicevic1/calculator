@@ -13,6 +13,8 @@ const keys = document.querySelector('.keys');
 let a = '';
 let b = '';
 let c = '';
+let reg = /^[0-9]+$/;
+
 if (body.classList.contains('light')) {
     circle[0].classList.add('hidden');
     circle[2].classList.add('hidden');
@@ -85,6 +87,11 @@ theme3.addEventListener('click', () => {
     circle[1].classList.add('hidden');
     circle[2].classList.remove('hidden');
 });
+function testValue(value) {
+    if (reg.test(value)) {
+        return value;
+    }
+}
 function calc(value) {
     switch (value) {
         case 'reset':
@@ -121,16 +128,7 @@ function calc(value) {
                 input.value += '.';
             }
             break;
-        case '1':
-        case '2':
-        case '3':
-        case '4':
-        case '5':
-        case '6':
-        case '7':
-        case '8':
-        case '9':
-        case '0':
+        case testValue(value):
             if (!c) {
                 a += value;
                 input.value = `${Number(a).toLocaleString()}`;

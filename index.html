@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/images/favicon-32x32.png"
+        />
+        <link rel="stylesheet" href="style/css/css.css" />
+        <title>Calculator</title>
+    </head>
+    <body class="light dark neutral">
+        <main class="container">
+            <header class="header">
+                <p>calc</p>
+                <div class="themePicker">
+                    <p>theme</p>
+                    <div class="themeNums">
+                        <p class="theme1">1</p>
+                        <p class="theme2">2</p>
+                        <p class="theme3">3</p>
+                    </div>
+                    <div class="themeSlider">
+                        <div class="first">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="second">
+                            <div class="circle two"></div>
+                        </div>
+                        <div class="third">
+                            <div class="circle three"></div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section class="screen">
+                <input
+                    class="inputScreen"
+                    type="text"
+                    value="0"
+                    onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                    pattern="[0-9,x+*\.\/-]"
+                />
+            </section>
+            <section class="keys">
+                <button value="7" class="small">7</button>
+                <button value="8" class="small">8</button>
+                <button value="9" class="small">9</button>
+                <button value="del" class="small del">del</button>
+                <button value="4" class="small">4</button>
+                <button value="5" class="small">5</button>
+                <button value="6" class="small">6</button>
+                <button value="+" class="small">+</button>
+                <button value="1" class="small">1</button>
+                <button value="2" class="small">2</button>
+                <button value="3" class="small">3</button>
+                <button value="-" class="small">-</button>
+                <button value="." class="small">.</button>
+                <button value="0" class="small">0</button>
+                <button value="/" class="small">/</button>
+                <button value="x" class="small">x</button>
+                <button value="reset" class="big reset">reset</button>
+                <button value="=" class="big equal">=</button>
+            </section>
+        </main>
+        <script src="./scripts/app.js"></script>
+        <!-- <script src="./scripts/app2.js"></script> -->
+    </body>
+</html>
